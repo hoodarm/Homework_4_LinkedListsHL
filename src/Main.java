@@ -1,10 +1,7 @@
-import java.util.Objects;
-
 public class Main {
     public static void main(String[] args) {
-        Node head = new Node (5); head.add (13); head.add (-2); head.add (0); head.add (4);
-        head.add (-19);  head.add (1);  head.add (14);  head.add (2);
-        Objects.requireNonNull(remove(head, 14)).print();
+        Node head = new Node (5);
+        remove(head,5).print();
     }
 
     static Node remove (Node head, int v)
@@ -18,16 +15,13 @@ public class Main {
         }
 
         while (temp!=null){
-            if (prev.next.value==v){
+            if (temp.value==v){
                 prev.next = temp.next;
                 return head;
             }
-            prev = prev.next;
+            prev = temp;
             temp = temp.next;
         }
-
-        if (head.next==null)
-            return null;
 
         return head;
     }
